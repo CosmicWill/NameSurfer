@@ -9,5 +9,9 @@ get '/'  do
 end
 
 post '/NameSurfer' do
-	erb
+	#if(found)
+		#erb :graph
+	#else
+		#erb :notFound
+
 end
