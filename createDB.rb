@@ -11,7 +11,6 @@ def splitDef(raw_def)
 	raw_def = raw_def.split("\n")
 	raw_def.each do |str|
 		str = str.split(" ")
-
 		output.push(str)
 	end
 	output
@@ -19,8 +18,9 @@ end
 
 
 begin
-	db = SQLite3::Database.new "development.db"
+	db = SQLite3::Database.new "Names.db"
 	db.execute "CREATE TABLE IF NOT EXISTS Names(
+	ID INTEGER PRIMARY KEY AUTOINCREMENT,
 	Name TEXT, 
 	year1900 INTEGER, 
 	year1910 INTEGER,
@@ -36,7 +36,21 @@ begin
 
 	splitDef(parseFile()).each do |str|
 		#print str[1,11].join(",")
-		db.execute "INSERT INTO Names VALUES( '#{str[0]}' ," + str[1,11].join(",") + ")" 
+		db.execute "INSERT INTO Names
+		(Name,
+		year1900,
+		year1910,
+		year1920,
+		year1930,
+		year1940,
+		year1950,
+		year1960,
+		year1970,
+		year1980,
+		year1990,
+		year2000) 
+		VALUES( '#{str[0]}' ," + str[1,11].join(",") + ")" 
+
 	end
 
 rescue SQLite3::Exception => e
