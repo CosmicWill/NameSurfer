@@ -21,7 +21,7 @@ begin
 	db = SQLite3::Database.new "Names.db"
 	db.execute "CREATE TABLE IF NOT EXISTS Names(
 	ID INTEGER PRIMARY KEY AUTOINCREMENT,
-	Name TEXT, 
+	Name STRING, 
 	year1900 INTEGER, 
 	year1910 INTEGER,
 	year1920 INTEGER, 

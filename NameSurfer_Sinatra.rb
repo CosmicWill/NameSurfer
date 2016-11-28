@@ -8,9 +8,9 @@ get '/'  do
 	erb	:home
 end
 
-post '/NameSurfer' do
+get '/NameSurfer' do
 	#if(found)
-		#erb :graph
+		erb :graph
 	#else
 		#erb :notFound
 

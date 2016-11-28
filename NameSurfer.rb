@@ -3,13 +3,13 @@ require 'dm-migrations'
 #require 'dm-sqlite-adapter'
 
 configure do 
-	DataMapper.setup(:default,"sqlite://./Names.db")
+	DataMapper.setup(:default,"sqlite://#{Dir.pwd}/Names.db")
 end
 
 class Name
 	include DataMapper::Resource
 	property :ID, Serial
-	property :Name, Text
+	property :Name, String
 	property :year1900, Integer
 	property :year1910, Integer
 	property :year1920, Integer
@@ -26,8 +26,9 @@ end
 
 DataMapper.finalize()
 
-post '/NameSurfer' do 
+get '/NameSurfer' do 
 	@names = Name.all
+	puts @names
 end
 
 #Searches database for name information
