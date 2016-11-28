@@ -2,13 +2,11 @@
 <head>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
-
+    var dataExists = false;
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
-    // If no data on the chart exists, we initialize the first, fixed data row.
-    // i.e., this is a simple "first user click on the Search button initializer".
-    if (titlesArray = null) {
+    if (!dataExists) {
       var titlesArray = ["Year"];
       var 1900sArray  = ["1900"];
       var 1910sArray  = ["1910"];
@@ -65,6 +63,7 @@
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
       chart.draw(data, options);
+      dataExists = true;
     }
     /*
      function drawChart() {
