@@ -1,11 +1,12 @@
 <html>
 <head>
   <script type="text/javascript">
+    var titlesArray;
     google.charts.load('current', {'packages':['corechart']});
 
     // This is simply the "first user click on Search" initializer,
     // initializing the arrays once to the first static data row.
-    if (typeof(titlesArray) == undefined) {
+    if ("titlesArray" in window) {
       var titlesArray = ["Year"];
       var Array1900s  = ["1900"];
       var Array1910s  = ["1910"];
