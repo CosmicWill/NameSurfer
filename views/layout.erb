@@ -1,0 +1,55 @@
+<% title = "NameSurfer" %>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <title><%= @title || "NameSurfer" %></title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script
+              src="https://code.jquery.com/jquery-3.1.1.min.js"
+              integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+              crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <h1>NameSurfer</h1>
+        </header>
+        <p>This is the NameSurfer Web Application. Just type a name into the text box below and click search. A graph will appear and show you the names popluarity over the last 110 years. This data is based on its popularties within the top 1000 most populate names. </p>
+
+        <form id="inputForm" action="/" method="GET">
+            <label>Enter Name:</label>
+            <input type="text" id ="name" name="name">
+            <input type="submit" value="Search">
+        </form>
+
+        <script type="text/javascript">
+        
+            $('form').submit( function(event)
+            {
+                event.preventDefault();
+                var formData = {
+                    'name': $('input[name=name]').val() 
+                };
+
+                $.ajax({
+                    type     : 'POST',
+                    url      : '/NameSurfer',  
+                    data     : formData,
+                    dataType : 'json',
+                    encode   : true 
+                })
+
+                    .done(function(data){
+                        console.log(data);
+                    });
+
+            });
+
+        </script>
+
+        <section>
+            <%= yield %>
+        </section>
+    </body>
+</html>
