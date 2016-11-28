@@ -39,7 +39,6 @@
 
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        // Todo: Swap out these constants with the actual birth frequencies (year1900, year1910, etc.).
         titlesArray,
         Array1900s,
         Array1910s,
@@ -64,23 +63,11 @@
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
       chart.draw(data, options);
-      dataExists = true;
     }
-
-
-
-      var options = {
-        title: 'Name Frequency',
-        curveType: 'function',
-        legend: { position: 'bottom' },
-        desc: true
-      };
 
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
       chart.draw(data, options);
-      dataExists = true;
-    }
 
   </script>
 </head>
