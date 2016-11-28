@@ -3,8 +3,43 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', {'packages':['corechart']});
+
+<<<<<<< HEAD
+=======
+    // This is simply the "first user click on Search" initializer,
+    // initializing the arrays once to the first static data row.
+    if (!titlesArray) {
+      var titlesArray = ["Year"];
+      var 1900sArray  = ["1900"];
+      var 1910sArray  = ["1910"];
+      var 1920sArray  = ["1920"];
+      var 1930sArray  = ["1930"];
+      var 1940sArray  = ["1940"];
+      var 1950sArray  = ["1950"];
+      var 1960sArray  = ["1960"];
+      var 1970sArray  = ["1970"];
+      var 1980sArray  = ["1980"];
+      var 1990sArray  = ["1990"];
+      var 2000sArray  = ["2000"];
+    }
+
+    titlesArray.push("<%= @Name %>");
+    1900sArray.push("<%= @year1900 %>");
+    1910sArray.push("<%= @year1910 %>");
+    1920sArray.push("<%= @year1920 %>");
+    1930sArray.push("<%= @year1930 %>");
+    1940sArray.push("<%= @year1940 %>");
+    1950sArray.push("<%= @year1950 %>");
+    1960sArray.push("<%= @year1960 %>");
+    1970sArray.push("<%= @year1970 %>");
+    1980sArray.push("<%= @year1980 %>");
+    1990sArray.push("<%= @year1990 %>");
+    2000sArray.push("<%= @year2000 %>");
+
     google.charts.setOnLoadCallback(drawChart);
 
+
+>>>>>>> 87ea904d4e19d1a4c3fdb9c2caf272fa3cde99e4
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         // Todo: Swap out these constants with the actual birth frequencies (year1900, year1910, etc.).
