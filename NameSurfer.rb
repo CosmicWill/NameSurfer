@@ -53,7 +53,7 @@ get '/NameSurfer' do
 	if(params['name'])
 		@name = params['name']
 		@name = @name.gsub(/|^A-Za-z\-|/,'')
-		if foundName?(@name)
+		if foundName?(@name.downcase)
 			erb :graph
 		else
 			erb :notFound

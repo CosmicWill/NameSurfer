@@ -10,7 +10,15 @@ def splitDef(raw_def)
 	raw_def = raw_def.to_s
 	raw_def = raw_def.split("\n")
 	raw_def.each do |str|
+		str = str.downcase
 		str = str.split(" ")
+		str.map! do | item |
+			if item == "0"
+				item = "1001"
+			else
+				item
+			end
+		end
 		output.push(str)
 	end
 	output
