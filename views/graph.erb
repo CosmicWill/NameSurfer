@@ -9,31 +9,31 @@
     // initializing the arrays once to the first static data row.
     if (!titlesArray) {
       var titlesArray = ["Year"];
-      var 1900sArray  = ["1900"];
-      var 1910sArray  = ["1910"];
-      var 1920sArray  = ["1920"];
-      var 1930sArray  = ["1930"];
-      var 1940sArray  = ["1940"];
-      var 1950sArray  = ["1950"];
-      var 1960sArray  = ["1960"];
-      var 1970sArray  = ["1970"];
-      var 1980sArray  = ["1980"];
-      var 1990sArray  = ["1990"];
-      var 2000sArray  = ["2000"];
+      var Array1900s  = ["1900"];
+      var Array1910s  = ["1910"];
+      var Array1920s  = ["1920"];
+      var Array1930s  = ["1930"];
+      var Array1940s  = ["1940"];
+      var Array1950s  = ["1950"];
+      var Array1960s  = ["1960"];
+      var Array1970s  = ["1970"];
+      var Array1980s  = ["1980"];
+      var Array1990s  = ["1990"];
+      var Array2000s  = ["2000"];
     }
 
-    titlesArray.push("<%= @Name %>");
-    1900sArray.push("<%= @year1900 %>");
-    1910sArray.push("<%= @year1910 %>");
-    1920sArray.push("<%= @year1920 %>");
-    1930sArray.push("<%= @year1930 %>");
-    1940sArray.push("<%= @year1940 %>");
-    1950sArray.push("<%= @year1950 %>");
-    1960sArray.push("<%= @year1960 %>");
-    1970sArray.push("<%= @year1970 %>");
-    1980sArray.push("<%= @year1980 %>");
-    1990sArray.push("<%= @year1990 %>");
-    2000sArray.push("<%= @year2000 %>");
+    titlesArray.push('<%= @Name %>');
+    Array1900s.push(<%= @year1900 %>);
+    Array1910s.push(<%= @year1910 %>);
+    Array1920s.push(<%= @year1920 %>);
+    Array1930s.push(<%= @year1930 %>);
+    Array1940s.push(<%= @year1940 %>);
+    Array1950s.push(<%= @year1950 %>);
+    Array1960s.push(<%= @year1960 %>);
+    Array1970s.push(<%= @year1970 %>);
+    Array1980s.push(<%= @year1980 %>);
+    Array1990s.push(<%= @year1990 %>);
+    Array2000s.push(<%= @year2000 %>);
 
     google.charts.setOnLoadCallback(drawChart);
 
@@ -42,17 +42,17 @@
       var data = google.visualization.arrayToDataTable([
         // Todo: Swap out these constants with the actual birth frequencies (year1900, year1910, etc.).
         titlesArray,
-        1900sArray,
-        1910sArray,
-        1920sArray,
-        1930sArray,
-        1940sArray,
-        1950sArray,
-        1960sArray,
-        1970sArray,
-        1980sArray,
-        1990sArray,
-        2000sArray,
+        Array1900s,
+        Array1910s,
+        Array1920s,
+        Array1930s,
+        Array1940s,
+        Array1950s,
+        Array1960s,
+        Array1970s,
+        Array1980s,
+        Array1990s,
+        Array2000s
       ]);
 
       var options = {
@@ -67,23 +67,8 @@
       chart.draw(data, options);
       dataExists = true;
     }
-    /*
-     function drawChart() {
-     var data = google.visualization.arrayToDataTable([
-     // Todo: Swap out these constants with the actual birth frequencies (year1900, year1910, etc.).
-     ['Year', 'Name 1', 'Name 2'],
-     ['1900',  <%= @year1900 =>],
-        ['1910',  <%= @year1910 =>],
-        ['1920',  <%= @year1920 =>],
-        ['1930',  <%= @year1930 =>],
-        ['1940',  <%= @year1940 =>],
-        ['1950',  <%= @year1950 =>],
-        ['1960',  <%= @year1960 =>],
-        ['1970',  <%= @year1970 =>],
-        ['1980',  <%= @year1980 =>],
-        ['1990',  <%= @year1990 =>],
-        ['2000',  <%= @year2000 =>],
-      ]);
+
+
 
       var options = {
         title: 'Name Frequency',
@@ -97,7 +82,7 @@
       chart.draw(data, options);
       dataExists = true;
     }
-    */
+
   </script>
 </head>
 <body>
