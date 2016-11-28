@@ -4,9 +4,10 @@
   <script type="text/javascript">
     var dataExists = false;
     google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
 
-    if (!dataExists) {
+    // This is simply the "first user click on Search" initializer,
+    // initializing the arrays once to the first static data row.
+    if (!titlesArray) {
       var titlesArray = ["Year"];
       var 1900sArray  = ["1900"];
       var 1910sArray  = ["1910"];
@@ -21,7 +22,6 @@
       var 2000sArray  = ["2000"];
     }
 
-
     titlesArray.push("<%= @Name %>");
     1900sArray.push("<%= @year1900 %>");
     1910sArray.push("<%= @year1910 %>");
@@ -34,6 +34,8 @@
     1980sArray.push("<%= @year1980 %>");
     1990sArray.push("<%= @year1990 %>");
     2000sArray.push("<%= @year2000 %>");
+
+    google.charts.setOnLoadCallback(drawChart);
 
 
     function drawChart() {
