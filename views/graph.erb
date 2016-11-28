@@ -1,0 +1,91 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+
+    // This is simply the "first user click on Search" initializer,
+    // initializing the arrays once to the first static data row.
+    if (!titlesArray) {
+      var titlesArray = ["Year"];
+      var Array1900s  = ["1900"];
+      var Array1910s  = ["1910"];
+      var Array1920s  = ["1920"];
+      var Array1930s  = ["1930"];
+      var Array1940s  = ["1940"];
+      var Array1950s  = ["1950"];
+      var Array1960s  = ["1960"];
+      var Array1970s  = ["1970"];
+      var Array1980s  = ["1980"];
+      var Array1990s  = ["1990"];
+      var Array2000s  = ["2000"];
+    }
+
+    titlesArray.push('<%= @Name %>');
+    Array1900s.push(<%= @year1900 %>);
+    Array1910s.push(<%= @year1910 %>);
+    Array1920s.push(<%= @year1920 %>);
+    Array1930s.push(<%= @year1930 %>);
+    Array1940s.push(<%= @year1940 %>);
+    Array1950s.push(<%= @year1950 %>);
+    Array1960s.push(<%= @year1960 %>);
+    Array1970s.push(<%= @year1970 %>);
+    Array1980s.push(<%= @year1980 %>);
+    Array1990s.push(<%= @year1990 %>);
+    Array2000s.push(<%= @year2000 %>);
+
+    google.charts.setOnLoadCallback(drawChart);
+
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        // Todo: Swap out these constants with the actual birth frequencies (year1900, year1910, etc.).
+        titlesArray,
+        Array1900s,
+        Array1910s,
+        Array1920s,
+        Array1930s,
+        Array1940s,
+        Array1950s,
+        Array1960s,
+        Array1970s,
+        Array1980s,
+        Array1990s,
+        Array2000s
+      ]);
+
+      var options = {
+        title: 'Name Frequency',
+        curveType: 'function',
+        legend: { position: 'bottom' },
+        desc: true
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+      chart.draw(data, options);
+      dataExists = true;
+    }
+
+
+
+      var options = {
+        title: 'Name Frequency',
+        curveType: 'function',
+        legend: { position: 'bottom' },
+        desc: true
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+      chart.draw(data, options);
+      dataExists = true;
+    }
+
+  </script>
+</head>
+<body>
+<p> You submitted <%= @names %> </p>
+     <div id="curve_chart" style="width: 900px; height: 500px"></div>
+     </body>
+     </html>
