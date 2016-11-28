@@ -1,25 +1,7 @@
 <html>
 <head>
   <script type="text/javascript">
-    var titlesArray;
     google.charts.load('current', {'packages':['corechart']});
-
-    // This is simply the "first user click on Search" initializer,
-    // initializing the arrays once to the first static data row.
-    if ("titlesArray" in window) {
-      var titlesArray = ["Year"];
-      var Array1900s  = ["1900"];
-      var Array1910s  = ["1910"];
-      var Array1920s  = ["1920"];
-      var Array1930s  = ["1930"];
-      var Array1940s  = ["1940"];
-      var Array1950s  = ["1950"];
-      var Array1960s  = ["1960"];
-      var Array1970s  = ["1970"];
-      var Array1980s  = ["1980"];
-      var Array1990s  = ["1990"];
-      var Array2000s  = ["2000"];
-    }
 
     titlesArray.push('<%= @Name %>');
     Array1900s.push(<%= @year1900 %>);
@@ -63,6 +45,7 @@
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
       chart.draw(data, options);
+      dataExists = true;
     }
 
   </script>
