@@ -17,23 +17,23 @@
         </header>
         <p>This is the NameSurfer Web Application. Just type a name into the text box below and click search. A graph will appear and show you the names popluarity over the last 110 years. This data is based on its popularties within the top 1000 most populate names. </p>
 
-        <form id="inputForm" action="/" method="GET">
+        <form id="inputForm" action="/NameSurfer" method="GET">
             <label>Enter Name:</label>
             <input type="text" id ="name" name="name">
             <input type="submit" value="Search">
         </form>
-
+<!--
         <script type="text/javascript">
         
             $('form').submit( function(event)
             {
-                event.preventDefault();
+                //
                 var formData = {
                     'name': $('input[name=name]').val() 
                 };
 
                 $.ajax({
-                    type     : 'POST',
+                    type     : 'GET',
                     url      : '/NameSurfer',  
                     data     : formData,
                     dataType : 'json',
@@ -43,11 +43,12 @@
                     .done(function(data){
                         console.log(data);
                     });
+                    event.preventDefault();
 
             });
 
         </script>
-
+-->
         <section>
             <%= yield %>
         </section>
