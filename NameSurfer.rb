@@ -5,18 +5,6 @@ require 'dm-migrations'
 def foundName?(inputName)
 	@names.each do |entry|
 		if inputName == entry.Name
-			@year1900 = entry.year1900
-			@year1910 = entry.year1910
-			@year1920 = entry.year1920
-			@year1930 = entry.year1930
-			@year1940 = entry.year1940
-			@year1950 = entry.year1950
-			@year1960 = entry.year1960
-			@year1970 = entry.year1970
-			@year1980 = entry.year1980
-			@year1990 = entry.year1990
-			@year2000 = entry.year2000
-
 			temp = Array.new;
 			temp.push(@name)
 			temp.push(entry.year1900)
