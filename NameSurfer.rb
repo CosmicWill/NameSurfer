@@ -16,6 +16,21 @@ def foundName?(inputName)
 			@year1980 = entry.year1980
 			@year1990 = entry.year1990
 			@year2000 = entry.year2000
+
+			temp = Array.new;
+			temp.push(@name)
+			temp.push(entry.year1900)
+			temp.push(entry.year1910)
+			temp.push(entry.year1920)
+			temp.push(entry.year1930)
+			temp.push(entry.year1940)
+			temp.push(entry.year1950)
+			temp.push(entry.year1960)
+			temp.push(entry.year1970)
+			temp.push(entry.year1980)
+			temp.push(entry.year1990)
+			temp.push(entry.year2000)
+			settings.dataArray.push(temp)
 			return true
 		end
 	end
@@ -53,6 +68,7 @@ get '/NameSurfer' do
 	if(params['name'])
 		@name = params['name']
 		@name = @name.gsub(/|^A-Za-z\-|/,'')
+
 		if foundName?(@name.downcase)
 			erb :graph
 		else

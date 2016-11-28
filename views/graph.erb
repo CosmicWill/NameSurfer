@@ -6,7 +6,7 @@
 
     // This is simply the "first user click on Search" initializer,
     // initializing the arrays once to the first static data row.
-    if (!titlesArray) {
+  
       var titlesArray = ["Year"];
       var Array1900s  = ["1900"];
       var Array1910s  = ["1910"];
@@ -19,20 +19,26 @@
       var Array1980s  = ["1980"];
       var Array1990s  = ["1990"];
       var Array2000s  = ["2000"];
-    }
+    
+    
+      var savedData = <%= settings.dataArray %>
 
-    titlesArray.push('<%= @Name %>');
-    Array1900s.push(<%= @year1900 %>);
-    Array1910s.push(<%= @year1910 %>);
-    Array1920s.push(<%= @year1920 %>);
-    Array1930s.push(<%= @year1930 %>);
-    Array1940s.push(<%= @year1940 %>);
-    Array1950s.push(<%= @year1950 %>);
-    Array1960s.push(<%= @year1960 %>);
-    Array1970s.push(<%= @year1970 %>);
-    Array1980s.push(<%= @year1980 %>);
-    Array1990s.push(<%= @year1990 %>);
-    Array2000s.push(<%= @year2000 %>);
+      for (let data of savedData)
+      {
+        titlesArray.push(data[0]);
+        Array1900s.push(data[1]);
+        Array1910s.push(data[2]);
+        Array1920s.push(data[3]);
+        Array1930s.push(data[4]);
+        Array1940s.push(data[5]);
+        Array1950s.push(data[6]);
+        Array1960s.push(data[7]);
+        Array1970s.push(data[8]);
+        Array1980s.push(data[9]);
+        Array1990s.push(data[10]);
+        Array2000s.push(data[11]);
+      }
+
 
     google.charts.setOnLoadCallback(drawChart);
 
@@ -57,7 +63,13 @@
         title: 'Name Frequency',
         curveType: 'function',
         legend: {position: 'bottom'},
-        desc: true
+        vAxis: {  direction: -1,
+                  viewWindow: {
+                    min: 0,
+                    max: 1100
+                  },
+                  ticks: [0, 200, 400,  600,  800, 1000]
+                }
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -68,7 +80,7 @@
   </script>
 </head>
 <body>
-<p> You submitted <%= @names %> </p>
+<p> You submitted <%= @name %> </p>
      <div id="curve_chart" style="width: 900px; height: 500px"></div>
      </body>
      </html>
