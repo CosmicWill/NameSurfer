@@ -48,7 +48,7 @@ end
 DataMapper.finalize()
 
 
-post '/NameSurfer' do
+get '/NameSurfer' do
 	@names = Name.all
 	if(params['name'])
 		@name = params['name']
